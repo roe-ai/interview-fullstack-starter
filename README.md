@@ -53,6 +53,6 @@ We need to extend this from a **single-reviewer system** to support **multi-step
 - Keep the existing single-reviewer flow working (documents without a pipeline should still work as before)
 - Use the existing patterns you see in the code (API client structure, React Query usage, component style)
 
-### You have 55 minutes. You won't finish everything — prioritize what you think matters most. We encourage you to use AI tools.
+### You have 55 minutes. You won't finish everything — prioritize what you think matters most. You should use AI tools to help you.
 
 We're evaluating how you plan, design, interact with AI, and build — not just the final output. Use whatever AI tools you'd like.
