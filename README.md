@@ -32,18 +32,20 @@ We need to extend this from a **single-reviewer system** to support **multi-step
 
 ### Requirements
 
-1. **Pipeline Templates** — An admin can create and manage reusable pipeline templates (e.g., "Legal Review → Compliance Review → Final Sign-off"). Each stage has a name and an assigned reviewer.
+1. **Pipeline Templates** — An admin can create and manage reusable pipeline templates (e.g., "Legal Review → Compliance Review → Final Sign-off"). Each stage has a name and a default assigned reviewer.
 
 2. **Document Submission** — When a document is submitted, the author picks a pipeline template. The document enters the first stage of that pipeline.
 
-3. **Stage Progression** — The reviewer assigned to the current stage can:
+3. **Reviewer Reassignment** — A reviewer should be able to reassign their stage to a different reviewer. The template defines the default reviewer for each stage, but it can be overridden per-document.
+
+4. **Stage Progression** — The reviewer assigned to the current stage can:
    - **Approve** → document moves to the next stage (or becomes fully approved if it was the last stage)
    - **Reject** → up to you how this behaves — think about what makes sense for the user
    - **Request Changes** → document stays in the current stage, author must revise and resubmit to the same reviewer
 
-4. **Visibility** — The document detail page should show where the document is in its pipeline and the full review history across stages.
+5. **Visibility** — The document detail page should show where the document is in its pipeline and the full review history across stages.
 
-5. **Document List** — The document table should indicate pipeline progress for each document.
+6. **Document List** — The document table should indicate pipeline progress for each document.
 
 ### Constraints
 
