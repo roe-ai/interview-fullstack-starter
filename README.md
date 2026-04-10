@@ -8,7 +8,7 @@ A simple document review app with a FastAPI backend and Next.js frontend. Docume
 
 ```bash
 cd backend
-uv run python seed.py        # seed sample data
+uv run python seed.py        # seed sample data (4 users, 5 documents)
 uv run uvicorn main:app --reload
 ```
 
@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-App runs at http://localhost:3000.
+App runs at http://localhost:3001.
 
 ---
 
@@ -32,21 +32,18 @@ We need to extend this from a **single-reviewer system** to support **multi-step
 
 ### Requirements
 
-1. **Pipeline Templates** — An admin can define a reusable pipeline template (e.g., "Legal Review → Compliance Review → Final Sign-off"). Each stage has a name and an assigned reviewer.
+1. **Pipeline Templates** — An admin can create and manage reusable pipeline templates (e.g., "Legal Review → Compliance Review → Final Sign-off"). Each stage has a name and an assigned reviewer.
 
 2. **Document Submission** — When a document is submitted, the author picks a pipeline template. The document enters the first stage of that pipeline.
 
 3. **Stage Progression** — The reviewer assigned to the current stage can:
    - **Approve** → document moves to the next stage (or becomes fully approved if it was the last stage)
-   - **Reject** → document is sent back to the author with comments
-   - **Request Changes** → document stays in the current stage, author must revise and resubmit
+   - **Reject** → up to you how this behaves — think about what makes sense for the user
+   - **Request Changes** → document stays in the current stage, author must revise and resubmit to the same reviewer
 
-4. **Visibility** — The document detail page should show:
-   - Which pipeline it's in and what stage it's currently at
-   - A progress indicator showing all stages and which are complete
-   - The full review history across all stages
+4. **Visibility** — The document detail page should show where the document is in its pipeline and the full review history across stages.
 
-5. **Document List** — The document table should show the pipeline name and a compact progress indicator for each document.
+5. **Document List** — The document table should indicate pipeline progress for each document.
 
 ### Constraints
 
